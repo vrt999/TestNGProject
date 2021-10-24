@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="72" started-at="2020-07-22T16:37:32Z" finished-at="2020-07-22T16:37:32Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="72" started-at="2020-07-22T16:37:32Z" finished-at="2020-07-22T16:37:32Z">
+      <class name="com.TestNG.SamplePackage.ChildClass">
+        <test-method status="PASS" signature="parentBeforeSuiteMethod(java.lang.String)[pri:0, instance:com.TestNG.SamplePackage.ChildClass@1a3869f4]" name="parentBeforeSuiteMethod" is-config="true" duration-ms="15" started-at="2020-07-22T16:37:32Z" finished-at="2020-07-22T16:37:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[p1 value]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- parentBeforeSuiteMethod -->
+        <test-method status="PASS" signature="childMethod1()[pri:0, instance:com.TestNG.SamplePackage.ChildClass@1a3869f4]" name="childMethod1" duration-ms="9" started-at="2020-07-22T16:37:32Z" finished-at="2020-07-22T16:37:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- childMethod1 -->
+        <test-method status="PASS" signature="parentAfterSuiteMethod()[pri:0, instance:com.TestNG.SamplePackage.ChildClass@1a3869f4]" name="parentAfterSuiteMethod" is-config="true" duration-ms="0" started-at="2020-07-22T16:37:32Z" finished-at="2020-07-22T16:37:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- parentAfterSuiteMethod -->
+        <test-method status="PASS" signature="parentBeforeSuiteMethod(java.lang.String)[pri:0, instance:com.TestNG.SamplePackage.ChildClass@1a3869f4]" name="parentBeforeSuiteMethod" is-config="true" duration-ms="0" started-at="2020-07-22T16:37:32Z" finished-at="2020-07-22T16:37:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[p1 value]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- parentBeforeSuiteMethod -->
+        <test-method status="PASS" signature="childMethod2()[pri:0, instance:com.TestNG.SamplePackage.ChildClass@1a3869f4]" name="childMethod2" duration-ms="0" started-at="2020-07-22T16:37:32Z" finished-at="2020-07-22T16:37:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- childMethod2 -->
+        <test-method status="PASS" signature="parentAfterSuiteMethod()[pri:0, instance:com.TestNG.SamplePackage.ChildClass@1a3869f4]" name="parentAfterSuiteMethod" is-config="true" duration-ms="0" started-at="2020-07-22T16:37:32Z" finished-at="2020-07-22T16:37:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- parentAfterSuiteMethod -->
+      </class> <!-- com.TestNG.SamplePackage.ChildClass -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

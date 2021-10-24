@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<!-- The order of the tests run is based on the below order given in the 
+		test tags -->
+	<test thread-count="5" name="Test">
+		<groups>
+			<!-- Define First Meta group -->
+			<define name="Module 1">
+				<include name="Sub module 11" />
+				<include name="Sub module 12" />
+				<include name="Sub module 13" />
+				<include name="Sub module 14" />
+			</define>
+			<!-- Define Second Meta group -->
+			<define name="Module 2">
+				<include name="Sub module 21" />
+				<include name="Sub module 22" />
+				<include name="Sub module 23" />
+				<include name="Sub module 24" />
+			</define>
+			<run>
+				<include name="Module 1" />
+			</run>
+		</groups>
+	</test> <!-- Test -->
+	<test thread-count="5" name="Test0">
+		<method-selectors>
+			<method-selector>
+				<!-- It returns methods which satisfy below condition -->
+				<script language="beanshell"><![CDATA[
+       			return groups.containsKey("G1") && !groups.containsKey("G2");
+     			]]></script>
+			</method-selector>
+			<!-- Passing the group name to be executed at run time -->
+		</method-selectors>
+	</test> <!-- Test -->
+	<test thread-count="5" name="Test1">
+
+		<method-selectors>
+			<method-selector>
+				<script language="beanshell">
+					<!-- groupToRun is a VM argument. -->
+				<![CDATA[groupNames = System.getProperty("groupToRun");
+				groups.containsKey(groupNames);
+				]]>
+					<!-- Provide the VM Arguments in the run configuratiosn as -DgroupToRun 
+						= GroupName -->
+				</script>
+			</method-selector>
+		</method-selectors>
+	</test> <!-- Test -->
+	<test thread-count="5" name="Test2">
+		<classes>
+		
+			<class name="com.TestNG.SamplePackage.AnnotateHierarchy" />
+			<class name="com.TestNG.SamplePackage.AnnotationHierarchy" />
+		</classes>
+	</test> <!-- Test -->
+	<test thread-count="5" name="Test3">
+		<groups>
+			<!-- Define First Meta group -->
+			<define name="Module 1">
+				<include name="Sub module 11" />
+				<include name="Sub module 12" />
+				<include name="Sub module 13" />
+				<include name="Sub module 14" />
+			</define>
+			<!-- Define Second Meta group -->
+			<define name="Module 2">
+				<include name="Sub module 21" />
+				<include name="Sub module 22" />
+				<include name="Sub module 23" />
+				<include name="Sub module 24" />
+			</define>
+			<run>
+				<!-- Include module name i.e. meta group here -->
+				<include name="Module 1" />
+			</run>
+
+		</groups>
+		<classes>
+			<class name="GroupsExample.MetaGroupExample" />
+		</classes>
+	</test> <!-- Test -->
+	<test thread-count="5" name="Test">
+		<parameter name="confBeforeParameter"
+			value="confBeforeParameter" />
+		<parameter name="testParameters1" value="testParameters1" />
+		<parameter name="testParameters2" value="testParameters2" />
+		<parameter name="confAfterParameter"
+			value="confAfterParameter" />
+		<classes>
+			<class name="Parameters.ParametersThroughXML" />
+		</classes>
+	</test> <!-- Test -->
+	<test thread-count="5" name="Test">
+		<classes>
+			<class name="Parameters.ParametersAtMethodLevel">
+				<methods>
+					<!-- Including individual method -->
+					<include name="testMethod1"></include>
+					<!-- Passing parameters for first method -->
+					<parameter name="testParameters1"
+						value="testParameters 1" />
+					<parameter name="testParameters2"
+						value="testParameters 2" />
+					<!-- Including another method -->
+					<include name="testMethod2"></include>
+					<!-- Passing parameters for second method -->
+					<parameter name="testParameters3"
+						value="testParameters 3" />
+					<parameter name="testParameters4"
+						value="testParameters 4" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
+<suite name="Suite">
+	<parameter name="testParameters1"
+		value="testParameters 1 value" />
+	<parameter name="testParameters2"
+		value="testParameters 2 value" />
+	<test thread-count="5" name="Test">
+		<parameter name="testParameters1"
+			value="testParameters 1 test level value" />
+		<parameter name="testParameters2"
+			value="testParameters 2 test level value" />
+		<classes>
+			<class name="Parameters.ParameterTest">
+				<parameter name="testParameters1"
+					value="testParameters 1 class level value" />
+				<parameter name="testParameters2"
+					value="testParameters 2 class level value" />
+				<methods>
+					<!-- Including individual method -->
+					<include name="testMethod"></include>
+					<!-- Passing parameters for first method -->
+					<parameter name="testParameters1"
+						value="testParameters 1 method level value" />
+					<parameter name="testParameters2"
+						value="testParameters 2 method level value" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestNG XML Dependency Test Suite" time-out="300">
+
+	<test name="TestNGXML Dependency Test" verbose="2" time-out="500">
+		<groups>
+			<dependencies>
+				<group depends-on="pre-tests" name="tests"></group>
+				<group depends-on="tests" name="post-tests"></group>
+			</dependencies>
+		</groups>
+
+		<classes>
+			<class
+				name="com.journaldev.dependency.TestNGDependencyXMLExample">
+				<methods>
+					<include name="init"></include>
+					<include name="cleanup"></include>
+					<include name="insert" invocation-numbers="1"></include>
+					<include name="select" invocation-numbers="2"></include>
+					<include name="update" invocation-numbers="3"></include>
+					<include name="delete" invocation-numbers="4"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="MyTestOrder" preserve-order="true"><!-- To execute tests in the order mentioned in the classes  -->
+		<classes>
+			<class name="TestNGOrder">
+				<methods>
+					<include name="stepOne" />
+					<include name="stepTwo" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
+

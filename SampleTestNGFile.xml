@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!-- @BeforeSuite method will run here. -->
+<suite name="Suite">
+
+	<!-- First test starts here -> -->
+
+	<!-- @BeforeTest annotated method will run here. -->
+	<test thread-count="5" name="Test">
+	  <groups>
+            <run>
+            	<include name="G1"/>
+                <exclude name="G2"/>
+            </run>
+        </groups>
+        <!-- Groups tag can be placed after the suite tag as well where it applies to the groups of all the tests-->
+		<classes>
+
+			<!-- First class starts here -> -->
+			<!-- @BeforeClass annotated method will run here. -->
+			<class name="demoClass1">
+				<methods>
+					<!-- @BeforeMethod annotated method will run here. -->
+					<include name="demoMethod1"></include>
+					<!-- @AfterMethod annotated method will run here. -->
+
+					 
+					<exclude name="demoMethod2"></exclude>
+					 
+				</methods>
+
+			</class>
+			<!-- @AfterClass annotated method will run here. -->
+
+			<!-- First class ends here -> -->
+
+
+			<!-- second class starts here -> -->
+			<!-- @BeforeClass annotated method will run here. -->
+			<class name="demoClass2">
+				<methods>
+					<!-- @BeforeMethod annotated method will run here. -->
+					<include name="demoMethod3"></include>
+					<!-- @AfterMethod annotated method will run here. -->
+
+					<!-- @BeforeMethod annotated method will run here. -->
+					<include name="demoMethod4"></include>
+					<!-- @AfterMethod annotated method will run here. -->
+				</methods>
+
+			</class>
+			<!-- @AfterClass annotated method will run here. -->
+
+			<!-- second class ends here -> -->
+		</classes>
+	</test> <!-- Test -->
+	<!-- @AfterTest annotated method will run here. -->
+
+	<!-- First test ends here -> -->
+	
+	
+	<!-- Second test starts here -> -->
+
+	<!-- @BeforeTest annotated method will run here. -->
+	
+	<test thread-count="5" name="Test1">
+		<classes>
+
+			<!-- First class starts here -> -->
+			<!-- @BeforeClass annotated method will run here. -->
+			<class name="demoClass3">
+				<methods>
+					<!-- @BeforeMethod annotated method will run here. -->
+					<include name="demoMethod5"></include>
+					<!-- @AfterMethod annotated method will run here. -->
+
+					<!-- @BeforeMethod annotated method will run here. -->
+					<include name="demoMethod6"></include>
+					<!-- @AfterMethod annotated method will run here. -->
+				</methods>
+
+			</class>
+			<!-- @AfterClass annotated method will run here. -->
+
+			<!-- First class ends here -> -->
+
+
+			<!-- second class starts here -> -->
+			<!-- @BeforeClass annotated method will run here. -->
+			<class name="demoClass4">
+				<methods>
+					<!-- @BeforeMethod annotated method will run here. -->
+					<include name="demoMethod7"></include>
+					<!-- @AfterMethod annotated method will run here. -->
+
+					<!-- @BeforeMethod annotated method will run here. -->
+					<include name="demoMethod8"></include>
+					<!-- @AfterMethod annotated method will run here. -->
+				</methods>
+
+			</class>
+			<!-- @AfterClass annotated method will run here. -->
+
+			<!-- second class ends here -> -->
+		</classes>
+	</test> <!-- Test -->
+	<!-- @AfterTest annotated method will run here. -->
+
+	<!-- Second test ends here -> -->
+</suite> <!-- Suite -->
+<!-- @AfterSuite method will run here. -->
